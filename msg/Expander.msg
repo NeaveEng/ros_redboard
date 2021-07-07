@@ -1,4 +1,4 @@
-Header header
+# This message is used to assign values to all servos on an expander board at once.
 float32 servo0
 float32 servo1
 float32 servo2

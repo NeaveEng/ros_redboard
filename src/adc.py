@@ -1,33 +1,29 @@
 #!/usr/bin/env python3
-from time import sleep
-
 import rospy
-from sensor_msgs.msg import BatteryState
+import redboard
+from time import sleep
+from rosredboard.msg import ADC
 
-import board
-import adafruit_ina260
- 
-i2c = board.I2C()
-ina260 = adafruit_ina260.INA260(i2c)
+pub = rospy.Publisher('adc', ADC, queue_size=10)
+rospy.init_node('adc_node', anonymous=True)
 
-pub = rospy.Publisher('power', BatteryState, queue_size=10)
-rospy.init_node('robot_power_node', anonymous=True)
+rb = redboard.RedBoard()
 
 if __name__ == '__main__':
     try:
         # Loop until disconnected
-        while True:
+        while not rospy.is_shutdown():
             # Create message
-            msg = BatteryState()
-            msg.voltage = ina260.voltage
-            msg.current = ina260.current
-            msg.location = "MFP"
-            rospy.loginfo(msg)
+            msg = ADC()
+            msg.adc0 = rb.adc0
+            msg.adc1 = rb.adc1
+            msg.adc2 = rb.adc2
+            msg.adc3 = rb.adc3
+
+            # rospy.loginfo(msg)
             pub.publish(msg)
 
             sleep(1)
-        
-        print("Exiting, controller disconnected.")
 
     except rospy.ROSInterruptException:
         pass

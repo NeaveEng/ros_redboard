@@ -1,0 +1,6 @@
+<launch>
+  <node name="Motors" pkg="redroard" type="motors.py" ns="RedBoard" />
+  <node name="Servos" pkg="redboard" type="servos.py" ns="RedBoard" />
+  <node name="Expander" pkg="redboard" type="expander.py" ns="RedBoard" />
+  <node name="ADC" pkg="redboard" type="adc.py" ns="RedBoard" />
+</launch>

@@ -1,4 +1,5 @@
-Header header
+# This message is used to assign values to all the servos at once
+
 float32 servo5
 float32 servo6
 float32 servo7
