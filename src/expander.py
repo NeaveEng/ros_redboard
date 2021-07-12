@@ -4,7 +4,12 @@ import rospy
 import redboard
 from rosredboard.msg import Servo
 
-expander = redboard.PCA9685(address=0x40)
+#  Get the expander address
+expander_address = rospy.get_param('/expander_address')
+
+rospy.loginfo("Expander address: " + str(expander_address))
+
+expander = redboard.PCA9685(address=expander_address)
 expander.frequency = 50
 
 def callback(msg):
@@ -40,8 +45,6 @@ def callback(msg):
         expander.servo14 = msg.value
     if(msg.servo == 15):
         expander.servo15 = msg.value
-
-    rospy.loginfo("Servo: " + msg.servo + " , Value: " + msg.value)
         
 def listener():
     rospy.init_node('redboard_servo_expander_driver', anonymous=True)
