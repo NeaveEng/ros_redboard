@@ -13,6 +13,11 @@ This package implements four nodes:
 
 Definitions for each of the message types can be found in the `msg` folder.
 
+
+You can either run this using the launchfile, customising to your needs, or run the nodes individually. Please note, the PWM expander board address is now set using the `expander_address` ROS parameter:
+
+`roslaunch rosredboard redboard.launch`  
+
 Thanks!
 =
 

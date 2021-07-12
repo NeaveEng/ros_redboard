@@ -5,8 +5,7 @@ import redboard
 from rosredboard.msg import Servo
 
 #  Get the expander address
-expander_address = rospy.get_param('/expander_address')
-
+expander_address = rospy.get_param('/expander_address', 64)
 rospy.loginfo("Expander address: " + str(expander_address))
 
 expander = redboard.PCA9685(address=expander_address)
