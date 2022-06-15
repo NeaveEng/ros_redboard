@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>rosredboard</name>
+  <name>ros_noetic_redboard</name>
   <version>0.0.0</version>
   <description>The redboard package</description>
 
