@@ -2,7 +2,7 @@
 import rospy
 import redboard
 from time import sleep
-from rosredboard.msg import ADC
+from ros_noetic_redboard.msg import ADC
 
 pub = rospy.Publisher('adc', ADC, queue_size=10)
 rospy.init_node('adc_node', anonymous=True)
