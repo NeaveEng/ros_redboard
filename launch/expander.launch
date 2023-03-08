@@ -1,0 +1,4 @@
+<launch>
+  <param name="expander_address" type="int" value="66" />
+  <node name="Expander" pkg="rosredboard" type="expander.py" ns="RedBoard" />
+</launch>

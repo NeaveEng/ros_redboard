@@ -51,6 +51,7 @@ find_package(catkin REQUIRED COMPONENTS
    FILES
    Motors.msg
    Servos.msg
+   Servo.msg
    Expander.msg
    ADC.msg
  )
